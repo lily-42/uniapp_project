@@ -1,0 +1,1 @@
+<view><okingtz-cropper vue-id="23938411-1" saveButtonText="确认修改" data-event-opts="{{[['^uploadSuccess',[['uploadSuccess']]]]}}" bind:uploadSuccess="__e" bind:__l="__l"></okingtz-cropper></view>

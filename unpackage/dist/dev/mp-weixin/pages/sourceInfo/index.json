@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资源详情",
+  "usingComponents": {
+    "info-card": "/pages/sourceInfo/components/InfoCard"
+  }
+}

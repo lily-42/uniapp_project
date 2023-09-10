@@ -1,0 +1,153 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/fileManage/index",
+			"style": {
+				"navigationBarTitleText": "文件管理",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/recommend/index",
+			"style": {
+				"navigationBarTitleText": "科技趣玩",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "网站",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/article/index",
+			"style": {
+				"navigationBarTitleText": "文章",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/person/index",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/avatar/index",
+			"style": {
+				"navigationBarTitleText": "修改头像"
+			}
+		}, {
+			"path": "pages/signature/index",
+			"style": {
+				"navigationBarTitleText": "签名修改"
+			}
+		}, {
+			"path": "pages/sourceInfo/index",
+			"style": {
+				"navigationBarTitleText": "资源详情"
+			}
+		}, {
+			"path": "pages/website/index",
+			"style": {
+				"navigationBarTitleText": "网站详情"
+			}
+		}, {
+			"path": "pages/fileList/index",
+			"style": {
+				"navigationBarTitleText": "文件列表"
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/login/register",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		}, {
+			"path": "pages/login/forget",
+			"style": {
+				"navigationBarTitleText": "找回密码"
+			}
+		}, {
+			"path": "pages/websiteList/index",
+			"style": {
+				"navigationBarTitleText": "大杂烩",
+				"enablePullDownRefresh": true
+
+			}
+		}, {
+			"path": "pages/setting/index",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		}, {
+			"path": "pages/mylike/index",
+			"style": {
+				"navigationBarTitleText": "我的点赞",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/mycomment/index",
+			"style": {
+				"navigationBarTitleText": "我的评论",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/feedback/index",
+			"style": {
+				"navigationBarTitleText": "联系我们"
+			}
+		}, {
+			"path": "pages/webview/index",
+			"style": {
+				"navigationBarTitleText": "VIP尊享"
+			}
+		}, {
+			"path": "pages/allrating/index",
+			"style": {
+				"navigationBarTitleText": "所有评价",
+				"enablePullDownRefresh": true
+
+			}
+		}
+	],
+	// 全局样式
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	// tabbar
+	"tabBar": {
+		// "custom": true,
+		"color": "#333",
+		"selectedColor": "#007AFF",
+		// "backgroundColor": "#FFFFFF",
+		// "borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/fileManage/index",
+				"text": "文件",
+				"iconPath": "static/tabBar/file.png",
+				"selectedIconPath": "static/tabBar/file-active.png"
+			}, {
+				"pagePath": "pages/person/index",
+				"text": "我的",
+				"iconPath": "static/tabBar/mine.png",
+				"selectedIconPath": "static/tabBar/mine-active.png"
+			}
+		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "@/components/uni-$1.vue", // 匹配components目录内的vue文件
+			"^vue-file-(.*)": "packageName/path/to/vue-file-$1.vue" // 匹配node_modules内的vue文件
+		}
+	}
+}

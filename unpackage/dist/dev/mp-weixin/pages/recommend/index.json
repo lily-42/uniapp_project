@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "科技趣玩",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "recommend-design": "/components/recommend-design/recommend-design",
+    "recommend-list-new": "/components/recommend-list-new/recommend-list-new",
+    "our-loading": "/components/our-loading/our-loading",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
+    "drag-button-follow": "/components/drag-button-follow/drag-button-follow",
+    "rating-modal": "/components/rating-modal/rating-modal"
+  }
+}

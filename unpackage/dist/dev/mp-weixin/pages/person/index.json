@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-line": "/uni_modules/uview-ui/components/u-line/u-line",
+    "sign-dialog": "/components/sign-dialog/sign-dialog",
+    "user-menu": "/pages/person/components/UserMenu"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/fileManage/index",
+    "pages/recommend/index",
+    "pages/index/index",
+    "pages/article/index",
+    "pages/person/index",
+    "pages/avatar/index",
+    "pages/signature/index",
+    "pages/sourceInfo/index",
+    "pages/website/index",
+    "pages/fileList/index",
+    "pages/login/login",
+    "pages/login/register",
+    "pages/login/forget",
+    "pages/websiteList/index",
+    "pages/setting/index",
+    "pages/mylike/index",
+    "pages/mycomment/index",
+    "pages/feedback/index",
+    "pages/webview/index",
+    "pages/allrating/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#007AFF",
+    "list": [
+      {
+        "pagePath": "pages/fileManage/index",
+        "text": "文件",
+        "iconPath": "static/tabBar/file.png",
+        "selectedIconPath": "static/tabBar/file-active.png"
+      },
+      {
+        "pagePath": "pages/person/index",
+        "text": "我的",
+        "iconPath": "static/tabBar/mine.png",
+        "selectedIconPath": "static/tabBar/mine-active.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

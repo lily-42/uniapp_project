@@ -1,0 +1,1 @@
+<view class="feedback-box"><view class="feedback-title">联系我们</view><view class="feedback-qrcode"><image class="feedback-img _img" src="{{$root.m0}}" mode data-event-opts="{{[['tap',[['previewImage',[0]]]]]}}" bindtap="__e"></image></view></view>

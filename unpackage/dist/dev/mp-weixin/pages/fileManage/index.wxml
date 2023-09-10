@@ -1,0 +1,1 @@
+<view class="files-manage"><view class="_ul"><view data-event-opts="{{[['tap',[['goFileList',[1]]]]]}}" bindtap="__e" class="_li">原文件列表</view><view data-event-opts="{{[['tap',[['goFileList',[2]]]]]}}" bindtap="__e" class="_li">BIN文件列表</view><view data-event-opts="{{[['tap',[['goFileList',[3]]]]]}}" bindtap="__e" class="_li">下载文件列表</view></view></view>

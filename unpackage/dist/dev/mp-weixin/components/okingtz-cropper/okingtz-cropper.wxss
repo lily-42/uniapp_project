@@ -1,0 +1,310 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.cropper-config {
+  padding: 50rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+ .u-button {
+  margin: 20rpx;
+}
+.page-body {
+  width: 100%;
+}
+.cropper-content {
+  width: 100%;
+}
+.uni-corpper {
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  box-sizing: border-box;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC);
+}
+.uni-corpper-content {
+  position: relative;
+}
+.uni-corpper-content image {
+  display: block;
+  width: 100%;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100%;
+  min-height: 0 !important;
+  max-height: none !important;
+  image-orientation: 0deg !important;
+  margin: 0 auto;
+}
+/* 移动图片效果 */
+.uni-cropper-drag-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: move;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+/* 内部的信息 */
+.cropper-modal {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-user-select: none;
+          user-select: none;
+  z-index: 1;
+}
+.cropper-modal-box {
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+}
+.uni-corpper-crop-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  z-index: 2;
+}
+.uni-corpper-crop-box .uni-cropper-view-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  outline: 1rpx solid #69f;
+  outline-color: rgba(102, 153, 255, 0.75);
+}
+/* 横向虚线 */
+.uni-cropper-dashed-h {
+  position: absolute;
+  top: 33.33333333%;
+  left: 0;
+  width: 100%;
+  height: 33.33333333%;
+  border-top: 1rpx dashed rgba(255, 255, 255, 0.5);
+  border-bottom: 1rpx dashed rgba(255, 255, 255, 0.5);
+}
+/* 纵向虚线 */
+.uni-cropper-dashed-v {
+  position: absolute;
+  left: 33.33333333%;
+  top: 0;
+  width: 33.33333333%;
+  height: 100%;
+  border-left: 1rpx dashed rgba(255, 255, 255, 0.5);
+  border-right: 1rpx dashed rgba(255, 255, 255, 0.5);
+}
+/* 四个方向的线  为了之后的拖动事件*/
+.uni-cropper-line-t {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: #69f;
+  top: 0;
+  left: 0;
+  height: 1rpx;
+  opacity: 0.1;
+  cursor: n-resize;
+}
+.uni-cropper-line-t::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0rpx;
+  width: 100%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+  bottom: 0;
+  height: 41rpx;
+  background: transparent;
+  z-index: 11;
+}
+.uni-cropper-line-r {
+  position: absolute;
+  display: block;
+  background-color: #69f;
+  top: 0;
+  right: 0rpx;
+  width: 1rpx;
+  opacity: 0.1;
+  height: 100%;
+  cursor: e-resize;
+}
+.uni-cropper-line-r::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 41rpx;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+  bottom: 0;
+  height: 100%;
+  background: transparent;
+  z-index: 11;
+}
+.uni-cropper-line-b {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: #69f;
+  bottom: 0;
+  left: 0;
+  height: 1rpx;
+  opacity: 0.1;
+  cursor: s-resize;
+}
+.uni-cropper-line-b::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0rpx;
+  width: 100%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+  bottom: 0;
+  height: 41rpx;
+  background: transparent;
+  z-index: 11;
+}
+.uni-cropper-line-l {
+  position: absolute;
+  display: block;
+  background-color: #69f;
+  top: 0;
+  left: 0;
+  width: 1rpx;
+  opacity: 0.1;
+  height: 100%;
+  cursor: w-resize;
+}
+.uni-cropper-line-l::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 41rpx;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+  bottom: 0;
+  height: 100%;
+  background: transparent;
+  z-index: 11;
+}
+.uni-cropper-point {
+  width: 5rpx;
+  height: 5rpx;
+  background-color: #69f;
+  opacity: .75;
+  position: absolute;
+  z-index: 3;
+}
+.point-t {
+  top: -3rpx;
+  left: 50%;
+  margin-left: -3rpx;
+  cursor: n-resize;
+}
+.point-tr {
+  top: -3rpx;
+  left: 100%;
+  margin-left: -3rpx;
+  cursor: n-resize;
+}
+.point-r {
+  top: 50%;
+  left: 100%;
+  margin-left: -3rpx;
+  margin-top: -3rpx;
+  cursor: n-resize;
+}
+.point-rb {
+  left: 100%;
+  top: 100%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  cursor: n-resize;
+  width: 36rpx;
+  height: 36rpx;
+  background-color: #69f;
+  position: absolute;
+  z-index: 1112;
+  opacity: 1;
+}
+.point-b {
+  left: 50%;
+  top: 100%;
+  margin-left: -3rpx;
+  margin-top: -3rpx;
+  cursor: n-resize;
+}
+.point-bl {
+  left: 0%;
+  top: 100%;
+  margin-left: -3rpx;
+  margin-top: -3rpx;
+  cursor: n-resize;
+}
+.point-l {
+  left: 0%;
+  top: 50%;
+  margin-left: -3rpx;
+  margin-top: -3rpx;
+  cursor: n-resize;
+}
+.point-lt {
+  left: 0%;
+  top: 0%;
+  margin-left: -3rpx;
+  margin-top: -3rpx;
+  cursor: n-resize;
+}
+/* 裁剪框预览内容 */
+.uni-cropper-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.uni-cropper-viewer image {
+  position: absolute;
+  z-index: 2;
+}
+.show-crop-img {
+  position: absolute;
+  top: -100rpx;
+  left: 0;
+  right: 0;
+}
+

@@ -1,0 +1,1 @@
+<view class="setting-box"><view class="login-out"><u-button vue-id="13c0a9c8-1" text="退出登录" color="linear-gradient(to right, rgb(170, 170, 127), rgb(213, 51, 186))" data-event-opts="{{[['^click',[['loginOut']]]]}}" bind:click="__e" bind:__l="__l"></u-button></view></view>

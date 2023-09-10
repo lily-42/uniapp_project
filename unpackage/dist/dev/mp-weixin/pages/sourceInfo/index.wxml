@@ -1,0 +1,1 @@
+<view class="source-info-box"><info-card vue-id="4de8aefe-1" sourceId="{{sourceId}}" bind:__l="__l"></info-card></view>
