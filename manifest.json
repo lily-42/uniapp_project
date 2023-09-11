@@ -1,7 +1,7 @@
 {
-    "name" : "文件管理",
+    "name" : "文件解析还原平台系统",
     "appid" : "__UNI__1DE7450",
-    "description" : "文件管理",
+    "description" : "文件解析还原平台系统",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,

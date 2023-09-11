@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "修改头像",
-  "usingComponents": {
-    "okingtz-cropper": "/components/okingtz-cropper/okingtz-cropper"
-  }
-}

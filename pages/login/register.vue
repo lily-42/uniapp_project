@@ -4,7 +4,7 @@
 		<view class="content">
 			<!-- 头部logo -->
 			<view class="header">
-				<image src="../../static/logo.png"></image>
+				文件解析还原平台系统
 			</view>
 			<!-- 主体 -->
 			<view class="main">

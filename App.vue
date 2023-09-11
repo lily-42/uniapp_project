@@ -20,7 +20,6 @@
 
 <style lang="scss">
 	@import "@/uni_modules/uview-ui/index.scss"; // 全局样式
-	@import "style/article.scss"; // 文章详情样式
 	@import url("./static/fonts/iconfont.css"); // 图标
 
 	/*每个页面公共css */

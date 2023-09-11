@@ -31,6 +31,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 40rpx;
 }
 .file-list .search .u-search {
   border: 1rpx solid #cccccc;
@@ -38,9 +40,26 @@
   margin-bottom: 20rpx;
 }
 .file-list .search .u-button {
-  width: 140rpx;
-  height: 68rpx;
-  margin-left: 20rpx;
+  margin: 0;
+  margin-right: 40rpx;
+  width: 100rpx;
+  height: 60rpx;
+}
+.file-list .search .upload-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #cccccc;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+}
+.file-list .search .upload-item input {
+  height: 100%;
+}
+.file-list .search .upload-item .u-button {
+  width: 100rpx;
+  height: 60rpx;
+  margin: 0;
 }
 .file-list .select-top {
   display: flex;
@@ -58,9 +77,19 @@
 .file-list .select-top .u-radio .u-radio__text {
   font-size: 28rpx !important;
 }
-.file-list .list-content ._li {
+.file-list .list-content {
+  margin-top: 20rpx;
+}
+.file-list .list-content ._ul ._li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1rpx solid #cccccc;
   padding: 20rpx;
   font-size: 28rpx;
+}
+.file-list .list-content ._ul ._li .operate-button {
+  font-size: 24rpx;
+  color: #3c9cff;
 }
 

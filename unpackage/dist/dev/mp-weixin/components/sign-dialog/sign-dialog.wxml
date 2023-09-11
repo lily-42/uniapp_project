@@ -1,1 +1,0 @@
-<block wx:if="{{show}}"><view class="sign-dialog-box data-v-04296594"><view class="sign-box data-v-04296594"><view data-event-opts="{{[['tap',[['closeDialog',['$event']]]]]}}" class="close-box data-v-04296594" bindtap="__e"><view class="iconfont pig-changyong_guanbi _i data-v-04296594"></view></view></view></view></block>

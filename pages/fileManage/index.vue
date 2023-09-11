@@ -1,9 +1,9 @@
 <template>
 	<view class="files-manage">
 		<ul>
-			<li @click="goFileList(1)">原文件列表</li>
-			<li @click="goFileList(2)">BIN文件列表</li>
-			<li @click="goFileList(3)">下载文件列表</li>
+			<li @click="goFileList(1)">原文件列表<u-icon name="arrow-right" size="14"></u-icon></li>
+			<li @click="goFileList(2)">BIN文件列表<u-icon name="arrow-right" size="14"></li>
+			<li @click="goFileList(3)">下载文件列表<u-icon name="arrow-right" size="14"></li>
 		</ul>
 	</view>
 </template>
@@ -60,6 +60,9 @@
 		width: 100%;
 		ul {
 			li {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 				border-bottom: 1rpx solid #cccccc;
 				padding: 10px;
 				font-size: 28rpx;

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "文件管理",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon"
+  }
 }

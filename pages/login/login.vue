@@ -3,12 +3,12 @@
 		<view class="content">
 			<!-- 头部logo -->
 			<view class="header">
-				<image src="../../static/logo.png"></image>
+				文件解析还原平台系统
 			</view>
 			<!-- 主体表单 -->
 			<view class="main">
-				<wInput v-model="phoneData" type="text" maxlength="20" placeholder="邮箱" :focus="isFocus"></wInput>
-				<wInput v-model="passData" type="password" maxlength="20" placeholder="密码"></wInput>
+				<wInput v-model="phoneData" type="text" maxlength="20" placeholder="手机号" :focus="isFocus"></wInput>
+				<wInput v-model="passData" type="password" maxlength="20" placeholder="验证码"></wInput>
 			</view>
 			<wButton class="wbutton" text="登 录" :rotate="isRotate" @click="startLogin"></wButton>
 
@@ -110,9 +110,15 @@
 					password: this.passData,
 				};
 				const data = await userLogin(params);
-				if (data.code === "00000") {
+				const result = {
+					code: '00000',
+					data: {
+						token: '111111111111111'
+					}
+				}
+				if (result.code === "00000") {
 					// 登录成功保存token
-					const token = data.data.token;
+					const token = result.data.token;
 					if (token) {
 						this.$store.commit("setAuthorization", token);
 					}

@@ -24,16 +24,12 @@
 		data() {
 			return {
 				menuList: [{
-					name: '我的点赞',
-					iconfont: 'pig-changyong_dianzan',
-					page: '/pages/mylike/index',
-					isAuth: true,
-				}, {
-					name: '我的评论',
+					name: '使用教程',
 					iconfont: 'pig-changyong_xiaoxi',
 					page: '/pages/mycomment/index',
 					isAuth: true,
-				}, {
+				}, 
+				{
 					name: '联系我们',
 					iconfont: 'pig-fankuijianyi',
 					page: '/pages/feedback/index',

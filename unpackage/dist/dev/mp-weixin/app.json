@@ -1,25 +1,13 @@
 {
   "pages": [
     "pages/fileManage/index",
-    "pages/recommend/index",
-    "pages/index/index",
-    "pages/article/index",
     "pages/person/index",
-    "pages/avatar/index",
-    "pages/signature/index",
-    "pages/sourceInfo/index",
-    "pages/website/index",
     "pages/fileList/index",
     "pages/login/login",
     "pages/login/register",
     "pages/login/forget",
-    "pages/websiteList/index",
     "pages/setting/index",
-    "pages/mylike/index",
-    "pages/mycomment/index",
-    "pages/feedback/index",
-    "pages/webview/index",
-    "pages/allrating/index"
+    "pages/feedback/index"
   ],
   "subPackages": [],
   "window": {

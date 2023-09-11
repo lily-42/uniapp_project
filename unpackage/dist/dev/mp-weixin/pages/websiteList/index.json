@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "大杂烩",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "website-card": "/components/website-card/website-card",
-    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
-    "no-data": "/components/no-data/no-data"
-  }
-}

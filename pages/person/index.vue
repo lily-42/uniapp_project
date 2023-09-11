@@ -19,34 +19,20 @@
 			</view>
 			<!-- 个人信息卡片 -->
 			<view class="user-info">
-				<!-- 头像 -->
-				<view class="left">
-					<template v-if="userInfo">
-						<u-avatar :src="userInfo.avatar" size="80" @click="updateAvater"></u-avatar>
-						<i class="iconfont pig-xiangji3"></i>
-					</template>
-					<template v-else>
-						<u-avatar text="猪" size="80"></u-avatar>
-					</template>
-				</view>
 				<!-- 用户名称 -->
 				<view class="right">
 					<template v-if="userInfo">
 						<view class="user-detail">
 							<!-- 用户名 -->
 							<view class="username">
-								{{userInfo.username}}
+								176xxxx4742
+								<!-- {{userInfo.username}} -->
 							</view>
 						</view>
 					</template>
 					<template v-else>
 						<view class="toLogin" @click="toLogin">去登录</view>
 					</template>
-				</view>
-				<!-- 签名 -->
-				<view class="signature" v-if="userInfo">
-					{{userInfo.signature}}
-					<i class="iconfont pig-changyong_pingjia" @click="changeSignature"></i>
 				</view>
 
 				<!-- 其它信息区域 -->
@@ -60,12 +46,6 @@
 						<text class="my-score">我的积分</text>
 					</view>
 					<u-line direction="col"></u-line>
-					<!-- 签到 -->
-					<view class="user-sign" @click="tosign">
-						<i class="iconfont pig-qiandao1"></i>
-						<text v-show="!toIsSign">签到</text>
-						<text v-show="toIsSign">已签到</text>
-					</view>
 				</view>
 			</view>
 		</view>
@@ -75,18 +55,12 @@
 			<user-menu></user-menu>
 		</view>
 
-		<!-- 签到弹窗 -->
-		<sign-dialog :show="show" @closeDialog="closeDialog"></sign-dialog>
 	</view>
 </template>
 
 <script>
-	import UserMenu from "./components/UserMenu.vue"
-	import CONFIG from "@/config/index.js"
 	import moment from 'moment'
-	import {
-		throttle
-	} from "@/utils/throttle.js"; //引入节流函数
+    import UserMenu from "./components/UserMenu.vue"
 	import {
 		getUserSignList,
 		userSign
@@ -159,53 +133,6 @@
 					url: `/pages/setting/index`
 				})
 			},
-			// 跳转到裁剪页面
-			updateAvater() {
-				uni.navigateTo({
-					url: `/pages/avatar/index`
-				})
-			},
-			// 修改签名
-			changeSignature() {
-				uni.navigateTo({
-					url: `/pages/signature/index?oldSignature=${this.userInfo.signature}`
-				})
-			},
-			// 跳转至积分
-			toscore() {
-				// uni.$u.toast("卖力开发中");
-			},
-			tosign: throttle(async function() {
-				if (this.toIsSign) {
-					uni.$u.toast("今日已签到");
-					return;
-				} else {
-					const data = await userSign();
-					if (data.code === "00000") {
-						this.getUserSignListInfo();
-						this.$store.dispatch("getUserlevelInfo"); // 获取用户积分信息
-						uni.$u.toast("签到成功，积分+1");
-					} else {
-						uni.$u.toast(data.message);
-					}
-				}
-			}),
-			// 跳转至签到
-			// async tosign() {
-			// 	if (this.toIsSign) {
-			// 		uni.$u.toast("今日已签到");
-			// 		return;
-			// 	} else {
-			// 		const data = await userSign();
-			// 		if (data.code === "00000") {
-			// 			this.getUserSignListInfo();
-			// 			this.$store.dispatch("getUserlevelInfo"); // 获取用户积分信息
-			// 			uni.$u.toast("签到成功，积分+1");
-			// 		} else {
-			// 			uni.$u.toast(data.message);
-			// 		}
-			// 	}
-			// },
 			// 关闭签到弹窗
 			closeDialog() {
 				this.show = false;
@@ -232,7 +159,6 @@
 
 			.bgc-img {
 				position: absolute;
-				// filter: blur(1px);
 				opacity: 0.9;
 				width: 100%;
 				height: 100%;
@@ -285,34 +211,7 @@
 			}
 
 
-			.left {
-				display: flex;
-				align-items: center;
-				position: absolute;
-				top: -80rpx;
-				border: 12rpx solid #fff;
-				border-radius: 50%;
-				box-shadow: 13px 13px 15px rgba(255, 255, 255, 0.2);
-
-				/deep/ .u-upload__wrap {
-					width: 160rpx;
-					height: 160rpx;
-
-					.u-upload__wrap__preview {
-						margin: 0;
-					}
-				}
-
-				.pig-xiangji3 {
-					font-size: 40rpx;
-					position: absolute;
-					right: -4rpx;
-					top: 116rpx;
-				}
-			}
-
 			.right {
-				margin-top: 80rpx;
 				height: 80rpx;
 				display: flex;
 				align-items: center;
@@ -334,18 +233,6 @@
 					font-weight: 800;
 					color: $uni-color-primary;
 					letter-spacing: 4rpx;
-				}
-			}
-
-			.signature {
-				font-size: $uni-font-size-base;
-				color: $uni-color-subtitle;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				.iconfont {
-					margin-left: 20rpx;
 				}
 			}
 
@@ -386,24 +273,7 @@
 						font-size: 20rpx;
 					}
 				}
-
-				// 签到
-				.user-sign {
-					height: 100%;
-					flex: 1;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: center;
-					color: #ccac09;
-					font-size: 24rpx;
-				}
 			}
-		}
-
-		// 菜单列表
-		.my-like-box {
-			margin: 140rpx 0;
 		}
 
 		.user-setting-menu {

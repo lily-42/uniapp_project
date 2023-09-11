@@ -7,52 +7,12 @@
 				"enablePullDownRefresh": true
 			}
 		}, {
-			"path": "pages/recommend/index",
-			"style": {
-				"navigationBarTitleText": "科技趣玩",
-				"enablePullDownRefresh": true,
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "网站",
-				"enablePullDownRefresh": true
-			}
-		}, {
-			"path": "pages/article/index",
-			"style": {
-				"navigationBarTitleText": "文章",
-				"enablePullDownRefresh": true
-			}
-		}, {
 			"path": "pages/person/index",
 			"style": {
 				"navigationBarTitleText": "个人中心",
 				"navigationStyle": "custom"
 			}
-		}, {
-			"path": "pages/avatar/index",
-			"style": {
-				"navigationBarTitleText": "修改头像"
-			}
-		}, {
-			"path": "pages/signature/index",
-			"style": {
-				"navigationBarTitleText": "签名修改"
-			}
-		}, {
-			"path": "pages/sourceInfo/index",
-			"style": {
-				"navigationBarTitleText": "资源详情"
-			}
-		}, {
-			"path": "pages/website/index",
-			"style": {
-				"navigationBarTitleText": "网站详情"
-			}
-		}, {
+		},  {
 			"path": "pages/fileList/index",
 			"style": {
 				"navigationBarTitleText": "文件列表"
@@ -73,45 +33,14 @@
 				"navigationBarTitleText": "找回密码"
 			}
 		}, {
-			"path": "pages/websiteList/index",
-			"style": {
-				"navigationBarTitleText": "大杂烩",
-				"enablePullDownRefresh": true
-
-			}
-		}, {
 			"path": "pages/setting/index",
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
 		}, {
-			"path": "pages/mylike/index",
-			"style": {
-				"navigationBarTitleText": "我的点赞",
-				"enablePullDownRefresh": true
-			}
-		}, {
-			"path": "pages/mycomment/index",
-			"style": {
-				"navigationBarTitleText": "我的评论",
-				"enablePullDownRefresh": true
-			}
-		}, {
 			"path": "pages/feedback/index",
 			"style": {
 				"navigationBarTitleText": "联系我们"
-			}
-		}, {
-			"path": "pages/webview/index",
-			"style": {
-				"navigationBarTitleText": "VIP尊享"
-			}
-		}, {
-			"path": "pages/allrating/index",
-			"style": {
-				"navigationBarTitleText": "所有评价",
-				"enablePullDownRefresh": true
-
 			}
 		}
 	],

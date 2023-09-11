@@ -1,1 +1,0 @@
-<view class="no-data-box"><image class="no-data-img _img" src="{{$root.m0}}" mode></image><view class="text _p">暂无数据</view></view>
