@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uIcon: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 368))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 376))
     },
   }
 } catch (e) {
@@ -188,6 +188,12 @@ var _default = {
   methods: {
     // 跳转至资料详情
     goFileList: function goFileList(type) {
+      if (type === 2) {
+        uni.navigateTo({
+          url: "/pages/fileList/binList?type=".concat(type)
+        });
+        return;
+      }
       uni.navigateTo({
         url: "/pages/fileList/index?type=".concat(type)
       });

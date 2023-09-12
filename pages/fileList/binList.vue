@@ -3,11 +3,11 @@
     <!-- 搜索框 -->
     <view class="search">
       <u-button
-        v-if="type === 1"
+        v-if="type === 2"
         class="operate-btn"
         type="primary"
-        @click="parsSourceFile"
-        >解析</u-button
+        @click="BinRepairFile"
+        >刷新</u-button
       >
       <u-button
         v-if="type === 2"
@@ -16,39 +16,34 @@
         @click="BinRepairFile"
         >修复</u-button
       >
-      <view class="upload-item" v-if="type === 1">
+      <view class="upload-item" v-if="type === 1 || type === 2">
         <input placeholder="设备序列号" value="" />
         <u-button class="upload-btn" type="primary" @click="uploadFile"
           >上传</u-button
         >
       </view>
-      <u-radio-group
-        v-if="type === 3"
-        v-model="value"
-      >
-        <u-radio name="Bin文件" label="Bin文件"> Bin文件 </u-radio>
-        <u-radio name="原文件" label="原文件"> 原文件 </u-radio>
-      </u-radio-group>
-      <u-button
-        v-if="type === 3"
-        class="operate-btn"
-        type="primary"
-        @click="downLoadFile"
-        >下载</u-button
-      >
     </view>
 
     <view class="list-content">
-      <u-radio-group v-model="selectedFile" @change="chooseFile">
-        <u-radio
-          v-for="(o, index) in 30"
-          :key="index"
-          :name="'文件' + index"
-          :label="'文件' + index"
-        >
-          文件{{ index }}
-        </u-radio>
-      </u-radio-group>
+      <view class="title">原文件列表</view>
+      <view class="source-list">
+        <ul>
+          <li v-for="(o, index) in 30" :key="index">文件{{ index }}</li>
+        </ul>
+      </view>
+      <view class="title">Bin文件列表</view>
+      <view class="bin-list">
+        <u-radio-group v-model="selectedFile" @change="chooseFile">
+          <u-radio
+            v-for="(o, index) in 30"
+            :key="index"
+            :name="'文件' + index"
+            :label="'文件' + index"
+          >
+            文件{{ index }}
+          </u-radio>
+        </u-radio-group>
+      </view>
     </view>
   </view>
 </template>
@@ -106,7 +101,9 @@ export default {
     this.type = Number(option.type);
     if (this.type == 1) {
       this.title = "原文件列表";
-    }else {
+    } else if (this.type == 2) {
+      this.title = "BIN文件列表";
+    } else {
       this.title = "下载文件列表";
     }
     uni.setNavigationBarTitle({
@@ -167,11 +164,11 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     padding: 20rpx;
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    width: 100%;
     .u-search {
       border: 1rpx solid #cccccc;
       border-radius: 10rpx;
@@ -200,7 +197,6 @@ export default {
         font-size: 24rpx !important;
         height: 60rpx;
         margin: 0;
-        padding: 0;
       }
     }
     .u-radio-group {
@@ -212,14 +208,36 @@ export default {
 
   .list-content {
     margin-top: 100rpx;
-    .u-radio-group {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .u-radio {
-        border-bottom: 1rpx solid #cccccc;
-        padding: 20rpx;
-        font-size: 28rpx;
+    .source-list {
+      height: 500rpx;
+      overflow-y: scroll;
+      border: 1px solid #cccccc;
+      background-color: #ffffff;
+      border-radius: 20rpx;
+      margin-bottom: 40rpx;
+      ul {
+        li {
+          border-bottom: 1rpx solid #cccccc;
+          padding: 20rpx;
+          font-size: 28rpx;
+        }
+      }
+    }
+    .bin-list {
+      height: 500rpx;
+      overflow-y: scroll;
+      border: 1px solid #cccccc;
+      background-color: #ffffff;
+      border-radius: 20rpx;
+      .u-radio-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .u-radio {
+          border-bottom: 1rpx solid #cccccc;
+          padding: 20rpx;
+          font-size: 28rpx;
+        }
       }
     }
   }

@@ -29,6 +29,12 @@
 		methods: {
 			// 跳转至资料详情
 			goFileList(type) {
+				if (type === 2) {
+					uni.navigateTo({
+					url: `/pages/fileList/binList?type=${type}`
+					})
+					return;
+				}
 				uni.navigateTo({
 					url: `/pages/fileList/index?type=${type}`
 				})

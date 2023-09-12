@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uLine: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 377))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-line/u-line */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-line/u-line")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-line/u-line.vue */ 385))
     },
   }
 } catch (e) {
@@ -232,7 +232,7 @@ var _sign = __webpack_require__(/*! @/http/api/sign */ 316);
 //
 var UserMenu = function UserMenu() {
   __webpack_require__.e(/*! require.ensure | pages/person/components/UserMenu */ "pages/person/components/UserMenu").then((function () {
-    return resolve(__webpack_require__(/*! ./components/UserMenu.vue */ 385));
+    return resolve(__webpack_require__(/*! ./components/UserMenu.vue */ 393));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {

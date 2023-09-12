@@ -19,6 +19,11 @@
 				"enablePullDownRefresh": true
 			}
 		}, {
+			"path": "pages/fileList/binList",
+			"style": {
+				"navigationBarTitleText": "Bin文件列表"
+			}
+		}, {
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录"

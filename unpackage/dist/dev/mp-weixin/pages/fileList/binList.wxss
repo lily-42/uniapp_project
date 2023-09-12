@@ -31,11 +31,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   padding: 20rpx;
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  width: 100%;
 }
 .file-list .search .u-search {
   border: 1rpx solid #cccccc;
@@ -66,7 +66,6 @@
   font-size: 24rpx !important;
   height: 60rpx;
   margin: 0;
-  padding: 0;
 }
 .file-list .search .u-radio-group .u-radio__text {
   font-size: 24rpx !important;
@@ -74,12 +73,32 @@
 .file-list .list-content {
   margin-top: 100rpx;
 }
-.file-list .list-content .u-radio-group {
+.file-list .list-content .source-list {
+  height: 500rpx;
+  overflow-y: scroll;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+}
+.file-list .list-content .source-list ._ul ._li {
+  border-bottom: 1rpx solid #cccccc;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.file-list .list-content .bin-list {
+  height: 500rpx;
+  overflow-y: scroll;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+.file-list .list-content .bin-list .u-radio-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.file-list .list-content .u-radio-group .u-radio {
+.file-list .list-content .bin-list .u-radio-group .u-radio {
   border-bottom: 1rpx solid #cccccc;
   padding: 20rpx;
   font-size: 28rpx;

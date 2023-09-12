@@ -101,13 +101,13 @@ var components
 try {
   components = {
     uButton: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 392))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-button/u-button */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-button/u-button")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-button/u-button.vue */ 400))
     },
     uRadioGroup: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio-group/u-radio-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio-group/u-radio-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio-group/u-radio-group.vue */ 402))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio-group/u-radio-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio-group/u-radio-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio-group/u-radio-group.vue */ 410))
     },
     uRadio: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio/u-radio */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio/u-radio")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio/u-radio.vue */ 410))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-radio/u-radio */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-radio/u-radio")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-radio/u-radio.vue */ 418))
     },
   }
 } catch (e) {
@@ -270,8 +270,6 @@ var _default = {
     this.type = Number(option.type);
     if (this.type == 1) {
       this.title = "原文件列表";
-    } else if (this.type == 2) {
-      this.title = "BIN文件列表";
     } else {
       this.title = "下载文件列表";
     }

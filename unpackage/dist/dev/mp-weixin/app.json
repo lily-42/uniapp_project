@@ -3,6 +3,7 @@
     "pages/fileManage/index",
     "pages/person/index",
     "pages/fileList/index",
+    "pages/fileList/binList",
     "pages/login/login",
     "pages/login/register",
     "pages/login/forget",
