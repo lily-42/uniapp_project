@@ -224,8 +224,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   // 样式穿透
   options: {
@@ -239,7 +237,13 @@ var _default = {
       value: "Bin文件",
       selectedFile: "",
       serialNum: "",
-      scrollTop: '',
+      scrollTop: "",
+      categoryList: [{
+        name: "原文件列表"
+      }, {
+        name: "Bin文件列表"
+      }],
+      activeIndex: 0,
       list: [{
         name: "Bin文件"
       }, {
@@ -316,7 +320,8 @@ var _default = {
     refresh: function refresh() {},
     parsSourceFile: function parsSourceFile() {},
     BinRepairFile: function BinRepairFile() {},
-    chooseFile: function chooseFile() {}
+    chooseFile: function chooseFile() {},
+    changeTab: function changeTab() {}
   }
 };
 exports.default = _default;

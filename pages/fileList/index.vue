@@ -1,10 +1,7 @@
 <template>
   <view class="file-list">
     <!-- 搜索框 -->
-    <view class="search" v-if="type !== 3">
-      <!-- <u-button class="refresh-btn operate-btn" type="primary" @click="refresh"
-        >刷新</u-button
-      > -->
+    <view class="search">
       <u-button
         v-if="type === 1"
         class="operate-btn"
@@ -19,15 +16,16 @@
         @click="BinRepairFile"
         >修复</u-button
       >
-      <view class="upload-item">
+      <view class="upload-item" v-if="type === 1 || type === 2">
         <input placeholder="设备序列号" value="" />
         <u-button class="upload-btn" type="primary" @click="uploadFile"
           >上传</u-button
         >
       </view>
-    </view>
-    <view class="search select-top" v-else>
-      <u-radio-group v-model="value">
+      <u-radio-group
+        v-if="type === 2 || type === 3"
+        v-model="value"
+      >
         <u-radio name="Bin文件" label="Bin文件"> Bin文件 </u-radio>
         <u-radio name="原文件" label="原文件"> 原文件 </u-radio>
       </u-radio-group>
@@ -68,7 +66,16 @@ export default {
       value: "Bin文件",
       selectedFile: "",
       serialNum: "",
-      scrollTop: '',
+      scrollTop: "",
+      categoryList: [
+        {
+          name: "原文件列表",
+        },
+        {
+          name: "Bin文件列表",
+        },
+      ],
+      activeIndex: 0,
       list: [
         {
           name: "Bin文件",
@@ -151,6 +158,7 @@ export default {
     parsSourceFile() {},
     BinRepairFile() {},
     chooseFile() {},
+    changeTab() {},
   },
 };
 </script>
@@ -172,6 +180,7 @@ export default {
       margin-bottom: 20rpx;
     }
     .u-button {
+      font-size: 24rpx !important;
       margin: 0;
       margin-right: 20rpx;
       width: 100rpx;
@@ -184,26 +193,23 @@ export default {
       border: 1px solid #cccccc;
       border-radius: 10rpx;
       padding-left: 20rpx;
+      width: 38%;
+      margin-right: 20rpx;
       input {
+        font-size: 24rpx;
         height: 100%;
       }
       .u-button {
-        width: 100rpx;
+        font-size: 24rpx !important;
         height: 60rpx;
         margin: 0;
+        padding: 0;
       }
     }
-  }
-  .select-top {
-    .u-button {
-      width: 100rpx;
-      height: 60rpx;
-      margin-right: 20rpx;
-    }
-    .u-radio {
-      margin-right: 20rpx;
+    .u-radio-group {
+      width: 40%;
       .u-radio__text {
-        font-size: 28rpx !important;
+        font-size: 24rpx !important;
       }
     }
   }

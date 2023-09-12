@@ -43,6 +43,7 @@
   margin-bottom: 20rpx;
 }
 .file-list .search .u-button {
+  font-size: 24rpx !important;
   margin: 0;
   margin-right: 20rpx;
   width: 100rpx;
@@ -55,25 +56,24 @@
   border: 1px solid #cccccc;
   border-radius: 10rpx;
   padding-left: 20rpx;
+  width: 38%;
+  margin-right: 20rpx;
 }
 .file-list .search .upload-item input {
+  font-size: 24rpx;
   height: 100%;
 }
 .file-list .search .upload-item .u-button {
-  width: 100rpx;
+  font-size: 24rpx !important;
   height: 60rpx;
   margin: 0;
+  padding: 0;
 }
-.file-list .select-top .u-button {
-  width: 100rpx;
-  height: 60rpx;
-  margin-right: 20rpx;
+.file-list .search .u-radio-group {
+  width: 40%;
 }
-.file-list .select-top .u-radio {
-  margin-right: 20rpx;
-}
-.file-list .select-top .u-radio .u-radio__text {
-  font-size: 28rpx !important;
+.file-list .search .u-radio-group .u-radio__text {
+  font-size: 24rpx !important;
 }
 .file-list .list-content {
   margin-top: 100rpx;
