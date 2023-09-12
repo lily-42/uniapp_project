@@ -221,6 +221,11 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   // 样式穿透
   options: {
@@ -232,7 +237,9 @@ var _default = {
       title: "文件列表",
       keyword: "",
       value: "Bin文件",
+      selectedFile: "",
       serialNum: "",
+      scrollTop: '',
       list: [{
         name: "Bin文件"
       }, {
@@ -241,6 +248,19 @@ var _default = {
     };
   },
   components: {},
+  //监听下拉刷新
+  onPullDownRefresh: function onPullDownRefresh() {},
+  onPageScroll: function onPageScroll(e) {
+    this.scrollTop = e.scrollTop;
+  },
+  // 监听上拉加载更多
+  onReachBottom: function onReachBottom() {
+    if (this.isEnd) {
+      return;
+    }
+    this.currentPage += 1;
+    this.pageParams.page = this.currentPage;
+  },
   onLoad: function onLoad(option) {
     console.log("option", option);
     this.type = Number(option.type);
@@ -295,7 +315,8 @@ var _default = {
     radioChange: function radioChange() {},
     refresh: function refresh() {},
     parsSourceFile: function parsSourceFile() {},
-    BinRepairFile: function BinRepairFile() {}
+    BinRepairFile: function BinRepairFile() {},
+    chooseFile: function chooseFile() {}
   }
 };
 exports.default = _default;

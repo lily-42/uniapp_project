@@ -28,11 +28,14 @@
   font-size: 28rpx;
 }
 .file-list .search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20rpx;
+  background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 40rpx;
+  width: calc(100% - 40rpx);
 }
 .file-list .search .u-search {
   border: 1rpx solid #cccccc;
@@ -41,7 +44,7 @@
 }
 .file-list .search .u-button {
   margin: 0;
-  margin-right: 40rpx;
+  margin-right: 20rpx;
   width: 100rpx;
   height: 60rpx;
 }
@@ -61,15 +64,10 @@
   height: 60rpx;
   margin: 0;
 }
-.file-list .select-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .file-list .select-top .u-button {
-  width: 140rpx;
-  height: 68rpx;
-  margin-left: 20rpx;
+  width: 100rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
 }
 .file-list .select-top .u-radio {
   margin-right: 20rpx;
@@ -78,18 +76,16 @@
   font-size: 28rpx !important;
 }
 .file-list .list-content {
-  margin-top: 20rpx;
+  margin-top: 100rpx;
 }
-.file-list .list-content ._ul ._li {
+.file-list .list-content .u-radio-group {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.file-list .list-content .u-radio-group .u-radio {
   border-bottom: 1rpx solid #cccccc;
   padding: 20rpx;
   font-size: 28rpx;
-}
-.file-list .list-content ._ul ._li .operate-button {
-  font-size: 24rpx;
-  color: #3c9cff;
 }
 

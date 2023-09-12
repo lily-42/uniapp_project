@@ -2,8 +2,22 @@
   <view class="file-list">
     <!-- 搜索框 -->
     <view class="search" v-if="type !== 3">
-      <u-button class="refresh-btn" type="primary" @click="refresh"
+      <!-- <u-button class="refresh-btn operate-btn" type="primary" @click="refresh"
         >刷新</u-button
+      > -->
+      <u-button
+        v-if="type === 1"
+        class="operate-btn"
+        type="primary"
+        @click="parsSourceFile"
+        >解析</u-button
+      >
+      <u-button
+        v-if="type === 2"
+        class="operate-btn"
+        type="primary"
+        @click="BinRepairFile"
+        >修复</u-button
       >
       <view class="upload-item">
         <input placeholder="设备序列号" value="" />
@@ -12,40 +26,31 @@
         >
       </view>
     </view>
-    <view class="select-top" v-else>
+    <view class="search select-top" v-else>
       <u-radio-group v-model="value">
         <u-radio name="Bin文件" label="Bin文件"> Bin文件 </u-radio>
         <u-radio name="原文件" label="原文件"> 原文件 </u-radio>
       </u-radio-group>
+      <u-button
+        v-if="type === 3"
+        class="operate-btn"
+        type="primary"
+        @click="downLoadFile"
+        >下载</u-button
+      >
     </view>
 
     <view class="list-content">
-      <ul>
-        <li v-for="o in 10">
-          <span class="file-name">文件</span>
-          <span
-            class="operate-button"
-            v-if="type === 1"
-            type="primary"
-            @click="parsSourceFile"
-            >解析源文件</span
-          >
-          <span
-            class="operate-button"
-            v-if="type === 2"
-            type="primary"
-            @click="BinRepairFile"
-            >Bin修复源文件</span
-          >
-          <span
-            class="operate-button"
-            v-if="type === 3"
-            type="primary"
-            @click="downLoadFile"
-            >下载</span
-          >
-        </li>
-      </ul>
+      <u-radio-group v-model="selectedFile" @change="chooseFile">
+        <u-radio
+          v-for="(o, index) in 30"
+          :key="index"
+          :name="'文件' + index"
+          :label="'文件' + index"
+        >
+          文件{{ index }}
+        </u-radio>
+      </u-radio-group>
     </view>
   </view>
 </template>
@@ -61,7 +66,9 @@ export default {
       title: "文件列表",
       keyword: "",
       value: "Bin文件",
+      selectedFile: "",
       serialNum: "",
+      scrollTop: '',
       list: [
         {
           name: "Bin文件",
@@ -73,6 +80,19 @@ export default {
     };
   },
   components: {},
+  //监听下拉刷新
+  onPullDownRefresh() {},
+  onPageScroll(e) {
+    this.scrollTop = e.scrollTop;
+  },
+  // 监听上拉加载更多
+  onReachBottom() {
+    if (this.isEnd) {
+      return;
+    }
+    this.currentPage += 1;
+    this.pageParams.page = this.currentPage;
+  },
   onLoad(option) {
     console.log("option", option);
 
@@ -130,6 +150,7 @@ export default {
     refresh() {},
     parsSourceFile() {},
     BinRepairFile() {},
+    chooseFile() {},
   },
 };
 </script>
@@ -137,11 +158,14 @@ export default {
 .file-list {
   font-size: 28rpx;
   .search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20rpx;
+    background-color: #ffffff;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 40rpx;
+    width: calc(100% - 40rpx);
     .u-search {
       border: 1rpx solid #cccccc;
       border-radius: 10rpx;
@@ -149,7 +173,7 @@ export default {
     }
     .u-button {
       margin: 0;
-      margin-right: 40rpx;
+      margin-right: 20rpx;
       width: 100rpx;
       height: 60rpx;
     }
@@ -171,13 +195,10 @@ export default {
     }
   }
   .select-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .u-button {
-      width: 140rpx;
-      height: 68rpx;
-      margin-left: 20rpx;
+      width: 100rpx;
+      height: 60rpx;
+      margin-right: 20rpx;
     }
     .u-radio {
       margin-right: 20rpx;
@@ -188,19 +209,15 @@ export default {
   }
 
   .list-content {
-    margin-top: 20rpx;
-    ul {
-      li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    margin-top: 100rpx;
+    .u-radio-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .u-radio {
         border-bottom: 1rpx solid #cccccc;
         padding: 20rpx;
         font-size: 28rpx;
-        .operate-button {
-          font-size: 24rpx;
-          color: #3c9cff;
-        }
       }
     }
   }

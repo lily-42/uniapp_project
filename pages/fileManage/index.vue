@@ -2,8 +2,8 @@
 	<view class="files-manage">
 		<ul>
 			<li @click="goFileList(1)">原文件列表<u-icon name="arrow-right" size="14"></u-icon></li>
-			<li @click="goFileList(2)">BIN文件列表<u-icon name="arrow-right" size="14"></li>
-			<li @click="goFileList(3)">下载文件列表<u-icon name="arrow-right" size="14"></li>
+			<li @click="goFileList(2)">BIN文件列表<u-icon name="arrow-right" size="14"></u-icon></li>
+			<li @click="goFileList(3)">下载文件列表<u-icon name="arrow-right" size="14"></u-icon></li>
 		</ul>
 	</view>
 </template>
@@ -20,20 +20,6 @@
 		},
 		onShow(){
 
-		},
-		//监听下拉刷新
-		onPullDownRefresh() {
-		},
-		onPageScroll(e) {
-			this.scrollTop = e.scrollTop;
-		},
-		// 监听上拉加载更多
-		onReachBottom() {
-			if (this.isEnd) {
-				return;
-			}
-			this.currentPage += 1;
-			this.pageParams.page = this.currentPage
 		},
 		onLoad() {
 

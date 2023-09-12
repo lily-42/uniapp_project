@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "文件列表",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
     "u-radio-group": "/uni_modules/uview-ui/components/u-radio-group/u-radio-group",

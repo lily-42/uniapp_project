@@ -182,6 +182,27 @@ var _user = __webpack_require__(/*! @/http/api/user.js */ 158);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var _this;
 var wInput = function wInput() {
@@ -197,10 +218,10 @@ var wButton = function wButton() {
 var _default = {
   data: function data() {
     return {
-      phoneData: '',
-      //用户/电话
-      passData: '',
-      //密码
+      phoneData: "18738679009",
+      //手机号
+      verCode: "123456",
+      //验证码
       isRotate: false,
       //是否加载旋转
       isFocus: true // 是否聚焦
@@ -233,77 +254,120 @@ var _default = {
       // 	// error
       // }
     },
-    startLogin: function startLogin(e) {
+    // 发送验证码
+    getVerCode: function getVerCode() {
       var _this2 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var params, data, result, token;
+        var data;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(e);
-                //登录
-                if (!_this2.isRotate) {
-                  _context.next = 3;
+                // 判断邮箱格式
+                if (!_this2.phoneData) {
+                  uni.showToast({
+                    icon: "error",
+                    title: "手机号不能为空"
+                  });
+                } else if (_this2.phoneData.match(/^1[3-9]\d{9}$/)) {
+                  _this2.$refs.runCode.$emit("runCode"); //触发倒计时（一般用于请求成功验证码后调用）
+                  // let params = {
+                  //   email: this.phoneData,
+                  // };
+                  // const data = await emailCode(params);
+                  data = {
+                    code: '00000'
+                  };
+                  if (data.code === "00000") {
+                    uni.showToast({
+                      icon: "success",
+                      title: "验证码发送成功"
+                    });
+                  } else {
+                    uni.showToast({
+                      icon: "error",
+                      title: data.message
+                    });
+                  }
+                } else {
+                  uni.showToast({
+                    icon: "error",
+                    title: "手机号格式错误"
+                  });
+                }
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    startLogin: function startLogin(e) {
+      var _this3 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var params, data, token;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!_this3.isRotate) {
+                  _context2.next = 2;
                   break;
                 }
-                return _context.abrupt("return", false);
-              case 3:
-                if (_this2.phoneData) {
-                  _context.next = 6;
+                return _context2.abrupt("return", false);
+              case 2:
+                if (_this3.phoneData) {
+                  _context2.next = 5;
                   break;
                 }
                 uni.showToast({
-                  icon: 'error',
-                  title: '用户名不能为空'
+                  icon: "error",
+                  title: "手机号不能为空"
                 });
-                return _context.abrupt("return");
-              case 6:
-                if (!(_this2.passData.length < 5)) {
-                  _context.next = 9;
+                return _context2.abrupt("return");
+              case 5:
+                if (!(_this3.verCode.length != 6)) {
+                  _context2.next = 8;
                   break;
                 }
                 uni.showToast({
-                  icon: 'error',
-                  title: '密码不正确'
+                  icon: "error",
+                  title: "验证码格式错误"
                 });
-                return _context.abrupt("return");
-              case 9:
+                return _context2.abrupt("return");
+              case 8:
                 _this.isRotate = true;
                 setTimeout(function () {
                   _this.isRotate = false;
                 }, 3000);
                 uni.showLoading({
-                  title: '登录中'
+                  title: "登录中"
                 });
                 params = {
-                  email: _this2.phoneData,
-                  password: _this2.passData
-                };
-                _context.next = 15;
-                return (0, _user.userLogin)(params);
-              case 15:
-                data = _context.sent;
-                result = {
+                  phone: _this3.phoneData,
+                  password: _this3.passData
+                }; // const data = await userLogin(params);
+                data = {
                   code: '00000',
                   data: {
-                    token: '111111111111111'
+                    token: '123344444'
                   }
                 };
-                if (result.code === "00000") {
+                if (data.code === "00000") {
                   // 登录成功保存token
-                  token = result.data.token;
+                  token = data.data.token;
                   if (token) {
-                    _this2.$store.commit("setAuthorization", token);
+                    _this3.$store.commit("setAuthorization", token);
                   }
                   uni.showToast({
-                    icon: 'success',
-                    position: 'bottom',
-                    title: '登录成功'
+                    icon: "success",
+                    position: "bottom",
+                    title: "登录成功"
                   });
-                  _this2.$store.dispatch("getUserInfo"); // 获取用户信息
-                  _this2.$store.dispatch("getUserlevelInfo"); // 获取用户积分信息
-                  if (uni.getStorageSync('redirectURL')) {
+                  _this3.$store.dispatch("getUserInfo"); // 获取用户信息
+                  _this3.$store.dispatch("getUserlevelInfo"); // 获取用户积分信息
+                  if (uni.getStorageSync("redirectURL")) {
                     uni.navigateBack();
                   } else {
                     uni.switchTab({
@@ -312,40 +376,40 @@ var _default = {
                   }
                 } else {
                   uni.showToast({
-                    icon: 'error',
+                    icon: "error",
                     title: data.message
                   });
                 }
-              case 18:
+              case 14:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     login_weixin: function login_weixin() {
       //微信登录
       uni.showToast({
-        icon: 'none',
-        position: 'bottom',
-        title: '...'
+        icon: "none",
+        position: "bottom",
+        title: "..."
       });
     },
     login_weibo: function login_weibo() {
       //微博登录
       uni.showToast({
-        icon: 'none',
-        position: 'bottom',
-        title: '...'
+        icon: "none",
+        position: "bottom",
+        title: "..."
       });
     },
     login_github: function login_github() {
       //github登录
       uni.showToast({
-        icon: 'none',
-        position: 'bottom',
-        title: '...'
+        icon: "none",
+        position: "bottom",
+        title: "..."
       });
     }
   }

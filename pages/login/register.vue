@@ -8,9 +8,7 @@
 			</view>
 			<!-- 主体 -->
 			<view class="main">
-				<wInput v-model="username" type="text" maxlength="10" placeholder="请输入用户名"></wInput>
-				<wInput v-model="phoneData" type="text" maxlength="20" placeholder="请输入邮箱"></wInput>
-				<wInput v-model="passData" type="password" maxlength="11" placeholder="请输入密码" isShowPass></wInput>
+				<wInput v-model="phoneData" type="text" maxlength="20" placeholder="请输入手机号"></wInput>
 				<wInput v-model="verCode" type="number" maxlength="6" placeholder="验证码" isShowCode ref="runCode"
 					@setCode="getVerCode()"></wInput>
 
@@ -42,9 +40,7 @@
 	export default {
 		data() {
 			return {
-				phoneData: '', // 用户/电话
-				username: '', // 用户名
-				passData: '', //密码
+				phoneData: '', // 手机号
 				verCode: "", //验证码
 				showAgree: true, //协议是否选择
 				isRotate: false, //是否加载旋转
@@ -68,9 +64,9 @@
 				if (!this.phoneData) {
 					uni.showToast({
 						icon: 'error',
-						title: "邮箱不能为空",
+						title: "手机号不能为空",
 					});
-				} else if (this.phoneData.match(/^\w+@\w+\.\w+$/i)) {
+				} else if (this.phoneData.match(/^1[3-9]\d{9}$/)) {
 					this.$refs.runCode.$emit('runCode'); //触发倒计时（一般用于请求成功验证码后调用）
 					let params = {
 						email: this.phoneData,
@@ -90,7 +86,7 @@
 				} else {
 					uni.showToast({
 						icon: 'error',
-						title: "邮箱格式错误",
+						title: "手机号格式错误",
 					});
 				}
 			},
@@ -101,31 +97,11 @@
 					//判断是否加载中，避免重复点击请求
 					return false;
 				}
-				if (!this.username) {
-					uni.showToast({
-						icon: 'error',
-						title: '用户名不能为空'
-					});
-					return false;
-				}
+			
 				if (!this.phoneData) {
 					uni.showToast({
 						icon: 'error',
-						title: '邮箱不能为空'
-					});
-					return false;
-				}
-				if (this.passData.length < 6) {
-					uni.showToast({
-						icon: 'error',
-						title: '密码不低于6位字符'
-					});
-					return false;
-				}
-				if (!this.passData) {
-					uni.showToast({
-						icon: 'error',
-						title: '密码不能为空'
+						title: '手机号不能为空'
 					});
 					return false;
 				}

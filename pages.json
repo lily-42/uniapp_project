@@ -15,7 +15,8 @@
 		},  {
 			"path": "pages/fileList/index",
 			"style": {
-				"navigationBarTitleText": "文件列表"
+				"navigationBarTitleText": "文件列表",
+				"enablePullDownRefresh": true
 			}
 		}, {
 			"path": "pages/login/login",

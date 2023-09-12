@@ -176,8 +176,6 @@ var _user = __webpack_require__(/*! @/http/api/user.js */ 158);
 //
 //
 //
-//
-//
 
 var _this;
 var wInput = function wInput() {
@@ -194,11 +192,7 @@ var _default = {
   data: function data() {
     return {
       phoneData: '',
-      // 用户/电话
-      username: '',
-      // 用户名
-      passData: '',
-      //密码
+      // 手机号
       verCode: "",
       //验证码
       showAgree: true,
@@ -234,12 +228,12 @@ var _default = {
                 }
                 uni.showToast({
                   icon: 'error',
-                  title: "邮箱不能为空"
+                  title: "手机号不能为空"
                 });
                 _context.next = 14;
                 break;
               case 4:
-                if (!_this2.phoneData.match(/^\w+@\w+\.\w+$/i)) {
+                if (!_this2.phoneData.match(/^1[3-9]\d{9}$/)) {
                   _context.next = 13;
                   break;
                 }
@@ -267,7 +261,7 @@ var _default = {
               case 13:
                 uni.showToast({
                   icon: 'error',
-                  title: "邮箱格式错误"
+                  title: "手机号格式错误"
                 });
               case 14:
               case "end":
@@ -292,48 +286,18 @@ var _default = {
                 }
                 return _context2.abrupt("return", false);
               case 2:
-                if (_this3.username) {
+                if (_this3.phoneData) {
                   _context2.next = 5;
                   break;
                 }
                 uni.showToast({
                   icon: 'error',
-                  title: '用户名不能为空'
+                  title: '手机号不能为空'
                 });
                 return _context2.abrupt("return", false);
               case 5:
-                if (_this3.phoneData) {
-                  _context2.next = 8;
-                  break;
-                }
-                uni.showToast({
-                  icon: 'error',
-                  title: '邮箱不能为空'
-                });
-                return _context2.abrupt("return", false);
-              case 8:
-                if (!(_this3.passData.length < 6)) {
-                  _context2.next = 11;
-                  break;
-                }
-                uni.showToast({
-                  icon: 'error',
-                  title: '密码不低于6位字符'
-                });
-                return _context2.abrupt("return", false);
-              case 11:
-                if (_this3.passData) {
-                  _context2.next = 14;
-                  break;
-                }
-                uni.showToast({
-                  icon: 'error',
-                  title: '密码不能为空'
-                });
-                return _context2.abrupt("return", false);
-              case 14:
                 if (!(_this3.verCode.length != 6)) {
-                  _context2.next = 17;
+                  _context2.next = 8;
                   break;
                 }
                 uni.showToast({
@@ -341,7 +305,7 @@ var _default = {
                   title: '验证码格式错误'
                 });
                 return _context2.abrupt("return", false);
-              case 17:
+              case 8:
                 _this.isRotate = true;
                 params = {
                   username: _this3.username,
@@ -349,9 +313,9 @@ var _default = {
                   email: _this3.phoneData,
                   code: _this3.verCode
                 };
-                _context2.next = 21;
+                _context2.next = 12;
                 return (0, _user.userRegister)(params);
-              case 21:
+              case 12:
                 data = _context2.sent;
                 if (data.code === "00000") {
                   _this.isRotate = false;
@@ -372,7 +336,7 @@ var _default = {
                     title: data.message
                   });
                 }
-              case 23:
+              case 14:
               case "end":
                 return _context2.stop();
             }
